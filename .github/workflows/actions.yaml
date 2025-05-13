@@ -11,11 +11,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production
+    env:
+      KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
+      KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
+      TINA_PUBLIC_IS_LOCAL: false
     strategy:
       matrix:
         node-version:
-          - 18
-          - 20
           - 22
     steps:
       - uses: actions/checkout@v4
@@ -26,10 +29,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        env:
-          KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
-          KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
-          TINA_PUBLIC_IS_LOCAL: false
       # - run: npm test
 
   check:
