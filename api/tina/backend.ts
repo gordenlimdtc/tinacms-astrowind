@@ -2,6 +2,7 @@ import { LocalBackendAuthProvider, TinaNodeBackend } from '@tinacms/datalayer';
 import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+// @ts-expect-error generated file
 import databaseClient from '../../tina/__generated__/databaseClient';
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';

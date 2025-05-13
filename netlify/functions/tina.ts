@@ -8,6 +8,7 @@ import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+// @ts-expect-error generated file
 import { databaseClient } from '../../tina/__generated__/databaseClient';
 
 dotenv.config();
@@ -36,11 +37,13 @@ const tinaBackend = TinaNodeBackend({
 
 app.post('/api/tina/*', async (req, res, next) => {
   // Modify request if needed
+  // @ts-expect-error lib type error
   tinaBackend(req, res, next);
 });
 
 app.get('/api/tina/*', async (req, res, next) => {
   // Modify request if needed
+  // @ts-expect-error lib type error
   tinaBackend(req, res, next);
 });
 
