@@ -11,7 +11,7 @@ tags:
   - tailwind css
 metadata:
   canonical: 'https://astrowind.vercel.app/get-started-website-with-astro-tailwind-css'
-title: Get started with AstroWind to create a website using Astro and Tailwind CSS111
+title: Get started with AstroWind to create a website using Astro and Tailwind CSS
 publishDate: 2023-08-12T00:00:00.000Z
 ---
 
