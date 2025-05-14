@@ -1,10 +1,7 @@
-import { defineConfig, LocalAuthProvider } from "tinacms";
+import { defineConfig, LocalAuthProvider } from 'tinacms';
 import { TinaUserCollection, UsernamePasswordAuthJSProvider } from 'tinacms-authjs/dist/tinacms';
 
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.HEAD ||
-  "main";
+const branch = process.env.GITHUB_BRANCH || process.env.HEAD || 'main';
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
@@ -15,27 +12,27 @@ export default defineConfig({
   contentApiUrlOverride: '/api/tina/gql',
   authProvider: isLocal ? new LocalAuthProvider() : new UsernamePasswordAuthJSProvider(),
   build: {
-    outputFolder: "admin",
-    publicFolder: "public",
+    outputFolder: 'admin',
+    publicFolder: 'public',
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: '',
+      publicFolder: 'public',
     },
   },
   schema: {
     collections: [
       TinaUserCollection,
       {
-        name: "post",
-        label: "Posts",
-        path: "src/data/post",
+        name: 'post',
+        label: 'Posts',
+        path: 'src/data/post',
         fields: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
+            type: 'string',
+            name: 'title',
+            label: 'Title',
             isTitle: true,
             required: true,
           },
@@ -46,9 +43,9 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
+            type: 'rich-text',
+            name: 'body',
+            label: 'Body',
             isBody: true,
           },
         ],

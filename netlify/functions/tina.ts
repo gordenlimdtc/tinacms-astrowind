@@ -25,12 +25,12 @@ const tinaBackend = TinaNodeBackend({
   authProvider: isLocal
     ? LocalBackendAuthProvider()
     : AuthJsBackendAuthProvider({
-      authOptions: TinaAuthJSOptions({
-        databaseClient,
-        secret: process.env.NEXTAUTH_SECRET!,
-        debug: true,
+        authOptions: TinaAuthJSOptions({
+          databaseClient,
+          secret: process.env.NEXTAUTH_SECRET!,
+          debug: true,
+        }),
       }),
-    }),
   databaseClient,
 });
 

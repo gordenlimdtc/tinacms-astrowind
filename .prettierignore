@@ -2,3 +2,7 @@ dist
 node_modules
 .github
 .changeset
+tina/__generated__
+public/admin
+*-lock*
+*.md

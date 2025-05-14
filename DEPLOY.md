@@ -10,7 +10,6 @@
 7. Add the environment variables
 8. Deploy the project
 
-
 ### Add the following secrets to Github repository:
 
 - `KV_REST_API_URL`
