@@ -14,3 +14,7 @@
   to = "/.netlify/functions/tina"
   status = 200
   force = true
+[[redirects]]
+    from = '/api/*'
+    to = '/.netlify/functions/api/:splat'
+    status = 200

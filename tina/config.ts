@@ -16,10 +16,14 @@ export default defineConfig({
     publicFolder: 'public',
   },
   media: {
-    tina: {
-      mediaRoot: 'uploads',
-      publicFolder: 'public',
-      static: false,
+    // tina: {
+    //   mediaRoot: 'uploads',
+    //   publicFolder: 'public',
+    //   static: false,
+    // },
+    loadCustomStore: async () => {
+      const pack = await import('next-tinacms-cloudinary');
+      return pack.TinaCloudCloudinaryMediaStore;
     },
   },
   schema: {
