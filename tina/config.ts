@@ -38,10 +38,48 @@ export default defineConfig({
             required: true,
           },
           {
+            type: 'string',
+            name: 'excerpt',
+            label: 'Description',
+          },
+          {
             type: 'datetime',
             name: 'publishDate',
             label: 'Publish Date',
             required: true,
+          },
+          {
+            type: 'string',
+            name: 'image',
+            label: 'Image',
+          },
+          {
+            type: 'string',
+            name: 'category',
+            label: 'Category',
+          },
+          {
+            type: 'string',
+            name: 'tags',
+            label: 'Tags',
+            list: true,
+          },
+          {
+            type: 'string',
+            name: 'author',
+            label: 'Author',
+          },
+          {
+            type: 'object',
+            name: 'metadata',
+            label: 'Metadata',
+            fields: [
+              {
+                type: 'string',
+                name: 'canonical',
+                label: 'Canonical',
+              },
+            ],
           },
           {
             type: 'rich-text',
