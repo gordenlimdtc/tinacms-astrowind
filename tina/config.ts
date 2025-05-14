@@ -23,7 +23,7 @@ export default defineConfig({
     // },
     loadCustomStore: async () => {
       const pack = await import('next-tinacms-cloudinary');
-      return pack.TinaCloudCloudinaryMediaStore;
+      return pack.CloudinaryMediaStore;
     },
   },
   schema: {
