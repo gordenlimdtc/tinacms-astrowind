@@ -1,7 +1,11 @@
 import ServerlessHttp from 'serverless-http';
 import express, { Router } from 'express';
-import { isAuthorized } from '@tinacms/auth';
 import { createMediaHandler } from 'next-tinacms-cloudinary/dist/handlers';
+import { LocalBackendAuthProvider } from '@tinacms/datalayer';
+import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
+import databaseClient from '../../../tina/__generated__/databaseClient';
+
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
 const app = express();
 
@@ -11,15 +15,24 @@ const mediaHandler = createMediaHandler({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME || '',
   api_key: process.env.CLOUDINARY_API_KEY || '',
   api_secret: process.env.CLOUDINARY_API_SECRET || '',
-  authorized: async (req, _res) => {
+  authorized: async (req, res) => {
     try {
       if (process.env.NODE_ENV == 'development') {
         return true;
       }
 
-      const user = await isAuthorized(req);
+      const authProvider = isLocal
+        ? LocalBackendAuthProvider()
+        : AuthJsBackendAuthProvider({
+            authOptions: TinaAuthJSOptions({
+              databaseClient: databaseClient,
+              secret: process.env.NEXTAUTH_SECRET!,
+            }),
+          });
 
-      return (user && user.verified) || false;
+      const { isAuthorized } = await authProvider.isAuthorized(req, res);
+
+      return isAuthorized || false;
     } catch (e) {
       console.error(e);
       return false;
