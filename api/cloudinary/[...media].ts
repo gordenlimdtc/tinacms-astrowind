@@ -1,7 +1,8 @@
 import { createMediaHandler } from 'next-tinacms-cloudinary/dist/handlers';
 import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
 import { LocalBackendAuthProvider } from '@tinacms/datalayer';
-import databaseClient from 'tina/__generated__/databaseClient';
+// @ts-expect-error generated file
+import databaseClient from '../../../tina/__generated__/databaseClient';
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 

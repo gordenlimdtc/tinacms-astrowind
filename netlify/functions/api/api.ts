@@ -3,6 +3,7 @@ import express, { Router } from 'express';
 import { createMediaHandler } from 'next-tinacms-cloudinary/dist/handlers';
 import { LocalBackendAuthProvider } from '@tinacms/datalayer';
 import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
+// @ts-expect-error generated file
 import databaseClient from '../../../tina/__generated__/databaseClient';
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
