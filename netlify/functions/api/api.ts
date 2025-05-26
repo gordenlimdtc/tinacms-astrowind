@@ -1,8 +1,7 @@
 import ServerlessHttp from 'serverless-http';
 import express, { Router } from 'express';
 import { createMediaHandler } from 'next-tinacms-cloudinary/dist/handlers';
-import { LocalBackendAuthProvider } from '@tinacms/datalayer';
-import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
+import { TinaAuthJSOptions } from 'tinacms-authjs';
 // @ts-expect-error generated file
 import databaseClient from '../../../tina/__generated__/databaseClient';
 import { getServerSession } from 'next-auth/next';

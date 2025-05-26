@@ -1,6 +1,5 @@
 import { createMediaHandler } from 'next-tinacms-cloudinary/dist/handlers';
-import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
-import { LocalBackendAuthProvider } from '@tinacms/datalayer';
+import { TinaAuthJSOptions } from 'tinacms-authjs';
 // @ts-expect-error generated file
 import databaseClient from '../../tina/__generated__/databaseClient';
 import { getServerSession } from 'next-auth/next';
