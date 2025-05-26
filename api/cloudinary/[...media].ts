@@ -12,10 +12,7 @@ export default createMediaHandler({
   api_secret: process.env.CLOUDINARY_API_SECRET!,
   authorized: async (req, res) => {
     try {
-      if (process.env.NODE_ENV === 'development' && !process.env.NEXT_PUBLIC_TINA_CLIENT_ID) {
-        // In development, if not using Tina Cloud client ID for auth,
-        // you might allow access or have simpler checks.
-        // However, it's better to test with your actual auth logic.
+      if (isLocal) {
         console.warn("Authorizing media handler in development without specific auth check.");
         return true;
       }
