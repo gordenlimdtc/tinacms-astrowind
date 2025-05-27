@@ -13,16 +13,20 @@ export default createMediaHandler({
   authorized: async (req, res) => {
     try {
       if (isLocal) {
-        console.warn("Authorizing media handler in development without specific auth check.");
+        console.warn('Authorizing media handler in development without specific auth check.');
         return true;
       }
 
       // Use getServerSession from NextAuth.js to check for an active session
       // Make sure 'authOptions' is correctly imported from your NextAuth.js setup
-      const session = await getServerSession(req, res, TinaAuthJSOptions({
-        databaseClient: databaseClient,
-        secret: process.env.NEXTAUTH_SECRET!,
-      }));
+      const session = await getServerSession(
+        req,
+        res,
+        TinaAuthJSOptions({
+          databaseClient: databaseClient,
+          secret: process.env.NEXTAUTH_SECRET!,
+        })
+      );
 
       // If a session exists, the user is considered authorized.
       // You can add more granular checks here if needed (e.g., user roles).
